@@ -54,6 +54,7 @@ function displayList(articles, listElement) {
     const seenTitles = new Set();
     let count = 0;
 
+    // Add actual articles
     articles.forEach(article => {
         if (!seenTitles.has(article.title) && count < 5) {
             seenTitles.add(article.title);
@@ -66,12 +67,26 @@ function displayList(articles, listElement) {
         }
     });
 
-    // If no articles found
-    if (count === 0) {
-        const li = document.createElement("li");
-        li.textContent = "No relevant articles available at the moment.";
-        listElement.appendChild(li);
+    // Show number of results available
+    if (count < 5) {
+        const info = document.createElement("li");
+        info.textContent = `Only ${count} article${count === 1 ? "" : "s"} available`;
+        info.style.fontStyle = "italic";
+        info.style.textAlign = "center";
+        info.style.color = "rgba(30,30,30,0.5)";
+        listElement.appendChild(info);
+
+        // Add placeholder cards for missing items
+        for (let i = count + 1; i <= 5; i++) {
+            const placeholder = document.createElement("li");
+            placeholder.textContent = "No more articles currently available";
+            placeholder.style.fontStyle = "italic";
+            placeholder.style.textAlign = "center";
+            placeholder.style.color = "rgba(30,30,30,0.3)";
+            listElement.appendChild(placeholder);
+        }
     }
 }
+
 
 
