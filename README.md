@@ -20,5 +20,5 @@ Tech used :
 6. Chat GPT (Vibe coding + fixing CORS error)
 
 Credits :
-Developed by - Lochan (Lichen)
-AI Assistant - ChatGPT
+1. Developed by - Lochan (Lichen)
+2. AI Assistant - ChatGPT
